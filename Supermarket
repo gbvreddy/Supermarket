@@ -1,0 +1,73 @@
+
+from datetime import datetime
+
+name = input("Enter Customer name:")
+
+# multiline strings as comments
+
+lists ='''
+Rice   Rs 20/kg
+salt   Rs 15/kg
+Sugar  Rs 40/kg
+Maggie Rs 100/kg
+Oil    Rs 100/kg
+Boost  Rs 90/kg
+Paneer Rs 25/kg
+
+'''
+
+#print(lists)
+#declaration
+
+price =0
+pricelist =[]
+totalprice =0
+FinalPrice =0
+ilist =[]
+plist =[]
+qlist =[]
+
+#rates of items
+items = {'rice':20,
+         'salt':15,
+         'sugar':40,
+         'maggie':100,
+          'oil':100,
+         'boost':90,
+         'paneer':25,}
+
+option =int(input('list of items press 1:'))
+
+if option==1:
+    print(lists)
+for i in range(len(lists)):
+    inp1=int(input("if you want to buy press1 or 2 for exit :"))
+    if inp1==2:
+        break
+    if inp1==1:
+        item=(input('enter the items:'))
+        quantity =int(input('enter the quantity:'))
+        if item in items.keys() :
+            price=quantity*(items[item])
+            pricelist.append((item,quantity,items,price))
+            totalprice+=price
+            ilist.append(item)
+            qlist.append(quantity)
+            plist.append(price)
+            gst =(totalprice*5)/100
+            FinalPrice =gst+totalprice
+        else:
+            print("item not available")
+    else:
+        print("entered wrong number")
+    inp=input("can i bill the items yes or no :")
+    if inp == 'yes':
+            pass
+            if FinalPrice!=0:
+               for i in range(len(pricelist)):
+                   print(25* '=',"bala supermarket",25*'=')
+                   print(50*'',"hyderabad")
+                   print("Name:",name,30* "","Date:",datetime.now())
+                    # print(i,ilist[i],qlist[i],plist[i])
+
+
